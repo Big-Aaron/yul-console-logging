@@ -6,7 +6,6 @@ import "forge-std/Test.sol";
 import "src/ConsoleLoggingWrapper.sol";
 import "./lib/YulDeployer.sol";
 
-
 contract ConsoleLoggingTest is Test {
     YulDeployer yulDeployer = new YulDeployer();
 
@@ -40,21 +39,18 @@ contract ConsoleLoggingTest is Test {
     function testCalldataByOffset() public {
         console.log("Log the second parameter:");
         //contractWrapper.logAddress(address(yulDeployer));
-        contractWrapper.logCalldataByOffset(1,2);
+        contractWrapper.logCalldataByOffset(1, 2);
     }
-
 
     function testLogCalldataWithoutSelector() public {
         uint256[] memory ids = new uint256[](3);
         ids[0] = 1;
         ids[1] = 2;
         ids[2] = 3;
-        contractWrapper.logCalldata("abcdefgh",56, ids);
+        contractWrapper.logCalldata("abcdefgh", 56, ids);
     }
 
     function testLogCalldataWithSelector() public {
-        contractWrapper.logCalldataWithSelector("abcdefgh",56);
+        contractWrapper.logCalldataWithSelector("abcdefgh", 56);
     }
-
 }
-
